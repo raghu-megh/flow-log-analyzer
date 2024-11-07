@@ -12,4 +12,6 @@ Illumio Assessment Project
 - Also there are various test cases part of the suite which tests various scenarios for sanity only
 - Though only version 2 is supported but it is easily extendable to other versions
 - Also we can backup the lines which we analyzed to a db/datastore, implementation is in place but I haven't wired it.
+- Requirement says 10 MB each log file, which can be fit in memory which the program runs, if the files get larger than that then we have have a limit on the lines we read at a time and then analyze those before we read again, in batches
+- Mapping files are not huge then can fit in memory, usually such data are to be stored in a cache (Redis etc)
 - Finally, please look at Main class for usage and output.
