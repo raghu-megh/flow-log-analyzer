@@ -28,8 +28,7 @@ public class V2TagCountStrategy implements CountingStrategy<V2FlowLogLine> {
                 .flatMap(s -> tagProvider.getTag(() -> s))
                 .map(String::toLowerCase)
                 .ifPresent(tag -> {
-                    map.putIfAbsent(tag, 0);
-                    map.put(tag, map.get(tag) + 1);
+                    map.put(tag, map.getOrDefault(tag, 0) + 1);
                 });
     }
 
