@@ -34,7 +34,7 @@ public class Main {
         //Directing the result to a file
         new TagCountOutputFormatter().write(new FileWriter("sampleOutput.txt"), tagCount.getCount());
 
-        //Count the actions
+        //Count the actions, extra to demonstrate ease of use
         var actionCount = new ActionCountStrategy();
         actionCount.count(lines);
         new ActionCountOutputFormatter().write(new PrintWriter(System.out, true), actionCount.getCount());

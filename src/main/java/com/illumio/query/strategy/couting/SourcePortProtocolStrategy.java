@@ -24,8 +24,7 @@ public class SourcePortProtocolStrategy implements CountingStrategy<V2FlowLogLin
         protocolMapper.getProtocol(line.getProtocolNumber())
                 .map(protocol -> line.getSourcePort() + "," + protocol)
                 .ifPresent(srcPortProtocol -> {
-                    map.putIfAbsent(srcPortProtocol, 0);
-                    map.put(srcPortProtocol, map.get(srcPortProtocol) + 1);
+                    map.put(srcPortProtocol, map.getOrDefault(srcPortProtocol, 0) + 1);
                 });
     }
 
