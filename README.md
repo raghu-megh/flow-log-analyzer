@@ -1,2 +1,2 @@
-# illumeio
+# flow-log-analyser
 Illumeio Assessment Project
