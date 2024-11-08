@@ -2,12 +2,13 @@ package com.illumio.model;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.experimental.SuperBuilder;
 
-@Builder
+@SuperBuilder
 @Getter
 public class V2FlowLogLine implements DefaultFlowLogLine {
 
-    private final int version = 2;
+    private final int version;
     private final String accountId;
     private final String interfaceId;
     private final String sourceAddress;
@@ -21,4 +22,8 @@ public class V2FlowLogLine implements DefaultFlowLogLine {
     private final int endTime;
     private final String action;
     private final String logStatus;
+
+    public int getVersion() {
+        return 2;
+    }
 }

@@ -11,26 +11,12 @@ import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class V2FlowLogParser implements FlowLogParser {
+public class V2FlowLogParser implements FlowLogParser<V2FlowLogLine> {
 
     private static final String V2_FLOW_LOG_LINE_REGEX = "^2\\s+(\\w++)\\s+(\\S++)\\s+(\\S++)\\s+(\\S++)\\s+(\\d++)\\s+(\\d++)\\s+(\\d++)\\s+(\\d++)\\s+(\\d++)\\s+(\\d++)\\s+(\\d++)\\s+(ACCEPT|REJECT)\\s+(OK|NODATA|SKIPDATA)\\s*";
     private static final Pattern PATTERN = Pattern.compile(V2_FLOW_LOG_LINE_REGEX);
 
     private static final int V2_FIELDS_COUNT = 13;   //without the version field
-
-    public static final int ACCOUNT_ID = 1;
-    public static final int INTERFACE_ID = 2;
-    public static final int SOURCE_ADDRESS = 3;
-    public static final int DESTINATION_ADDRESS = 4;
-    public static final int SOURCE_PORT = 5;
-    public static final int DESTINATION_PORT = 6;
-    public static final int PROTOCOL = 7;
-    public static final int PACKETS_COUNT = 8;
-    public static final int BYTES_COUNT = 9;
-    public static final int START_TIME = 10;
-    public static final int END_TIME = 11;
-    public static final int ACTION = 12;
-    public static final int LOG_STATUS = 13;
 
     @Override
     public List<V2FlowLogLine> parse(Reader reader) {
